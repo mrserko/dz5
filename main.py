@@ -2,7 +2,7 @@ import os
 import platform
 import functions
 from victory import victory
-from bank_account import account, exit
+from bank_account import account_f
 
 while True:
     print(functions.display())
@@ -28,12 +28,14 @@ while True:
     elif choice == '9':
         victory()
     elif choice == '10':
-        account()
+        account_f()
     elif choice == '11':
         new_path = input("Введите путь к желаемой директории: ")
         functions.change_dir(new_path)
     elif choice == '12':
-        exit()
+        functions.save_fails_and_dirs()
+    elif choice == '13':
+        functions.exit()
         break
     else:
         print('Неверный пункт меню')
