@@ -32,13 +32,13 @@ history = {}
 
 
 def display():
-    print("""
+    return """
     Меню: 
     1. пополнить счет
     2. покупка
     3. история покупок
     4. выход 
-    """)
+    """
 
 
 def add_money_to_account(account):

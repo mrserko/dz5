@@ -90,23 +90,20 @@ def copy_file_or_dir():
 def print_dirs():
     cwd = os.getcwd()
     onlydirs = [d for d in os.listdir(cwd) if os.path.isdir(os.path.join(cwd, d))]
-    print(onlydirs)
+    return onlydirs
 
 
 def print_files():
     cwd = os.getcwd()
     onlyfiles = [f for f in os.listdir(cwd) if os.path.isfile(os.path.join(cwd, f))]
-    print(onlyfiles)
+    return onlyfiles
 
 
 def info_about_creator():
-    print("""
-    This program was written dy mr.serko, 2019, Moscow, all rights reserved
-    """)
+    return "This program was written by mr.serko, 2019, Moscow, all rights reserved"
 
 
-def change_dir():
-    new_path = input("Введите путь к желаемой директории: ")
+def change_dir(new_path):
     if not os.path.isabs(new_path):
         new_path = os.path.join(r'C:\Users', new_path)
     os.chdir(new_path)

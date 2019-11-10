@@ -5,7 +5,7 @@ from victory import victory
 from bank_account import account, exit
 
 while True:
-    functions.display()
+    print(functions.display())
     choice = input('Выберите пункт меню')
     if choice == '1':
         name_of_dir = input("Введите имя папки: ")
@@ -18,19 +18,20 @@ while True:
         cwd = os.getcwd()
         print(os.listdir(path=cwd))
     elif choice == '5':
-        functions.print_dirs()
+        print(functions.print_dirs())
     elif choice == '6':
-        functions.print_files()
+        print(functions.print_files())
     elif choice == '7':
         print(platform.uname())
     elif choice == '8':
-        functions.info_about_creator()
+        print(functions.info_about_creator())
     elif choice == '9':
         victory()
     elif choice == '10':
         account()
     elif choice == '11':
-        functions.change_dir()
+        new_path = input("Введите путь к желаемой директории: ")
+        functions.change_dir(new_path)
     elif choice == '12':
         exit()
         break
