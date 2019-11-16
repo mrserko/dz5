@@ -1,9 +1,10 @@
 import os
 import shutil
+import json
 
 
 def display():
-    print("""
+    return"""
     Выберите одно из действий: 
     1. создать папку
     2. удалить (файл/папку)
@@ -16,8 +17,21 @@ def display():
     9. играть в викторину
     10. мой банковский счет
     11. смена рабочей директории
-    12. выход
-    """)
+    12. сохранить содержимое рабочей директории в файл
+    13. выход
+    """
+
+
+def save_fails_and_dirs():
+    with open("listdir.txt", 'w') as f:
+        f.write("files: ")
+        for file in print_files():
+            f.write(file)
+            f.write(" ")
+        f.write("\ndirs: ")
+        for dir in print_dirs():
+            f.write(dir)
+            f.write(" ")
 
 
 def remove_file_or_dir():
@@ -107,3 +121,7 @@ def change_dir(new_path):
     if not os.path.isabs(new_path):
         new_path = os.path.join(r'C:\Users', new_path)
     os.chdir(new_path)
+
+
+def exit():
+    print("Спасибо за пользование нашими услугами!")
