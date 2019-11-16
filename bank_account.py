@@ -51,9 +51,9 @@ def add_money_to_account(account):
 
 def buy(account):
     sum = input("Введите сумму предполагаемой покупки: ")
-    if sum.isdigit():
+    try:
         sum = int(sum)
-    else:
+    except ValueError:
         print("Сумма покупки - это число")
         return account
     if sum > account:

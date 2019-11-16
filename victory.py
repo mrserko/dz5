@@ -2,7 +2,7 @@ import random
 borndays = {
     "А.С.Пушкин" : ["06.06.1799", "шестое июня 1799 года"],
     "А.П.Гайдар" : ["22.01.1904", "двадцать второе января 1904 года"],
-    "Л.Н.Толстой" : ["09.09.1928", "девятое сентября 1928 года"],
+    "Л.Н.Толстой" : ["09.09.1828", "девятое сентября 1928 года"],
     "М.Ю.Лермотнов" : ["15.10.1814", "пятнадцатое октября 1814 года"],
     "Джон Леннон" : ["09.10.1940", "девятое октября 1940 года"],
     "Эми Уайнхаус" : ["14.09.1983", "четырнадцатое сентября 1983 года"],
@@ -17,16 +17,14 @@ def victory():
     try_again = None
     while try_again != "н":
         persons_to_ask = random.sample(borndays.keys(), 5)
-        right_answers = 0
+        right_answers = []
 
         for i in range(5):
             person = persons_to_ask[i]
             print("Когда родился ", person, "? (В формтае (дд.мм.гггг.)")
             answer = input("Ваш ответ:")
-            if answer == borndays[person][0]:
-                right_answers += 1
-            else:
-                print("Неверно! Правильный ответ: ",  borndays[person][1])
+            right_answers.append(borndays[person]) if answer == borndays[person][0] else print("Неверно! Правильный ответ: ",  borndays[person][1])
+        right_answers = len(right_answers)
         print("Правильных ответов:", right_answers)
         print("Неправильных ответов:", 5 - right_answers)
 
